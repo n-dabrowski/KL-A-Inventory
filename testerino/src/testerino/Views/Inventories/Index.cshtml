@@ -1,0 +1,79 @@
+@*@model IEnumerable<testerino.Models.Inventory>*@
+@model testerino.ViewModels.CategoryViewModel
+
+@{
+    Layout = "_LayoutInventory";
+    ViewData["Title"] = "Index";
+}
+
+<h2>Inventory</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form asp-controller="Inventories" asp-action="Index" method="get">
+    <p>
+        <select asp-for="Category" asp-items="Model.categories">
+            <option value="">All</option>
+        </select>
+
+        Name: <input type="text" name="searchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.inventories[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.inventories[0].Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.inventories[0].StorageLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.inventories[0].TotalQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.inventories[0].QuantityRemaining)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.inventories[0].RequestSubmitted)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.inventories) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StorageLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuantityRemaining)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestSubmitted)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

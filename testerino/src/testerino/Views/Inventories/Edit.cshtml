@@ -1,0 +1,73 @@
+@model testerino.Models.Inventory
+
+@{
+    Layout = "_LayoutInventory";
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <h4>Inventory</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="ID" />
+        <div class="form-group">
+            <label asp-for="Name" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Category" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Category" class="form-control" />
+                <span asp-validation-for="Category" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="StorageLocation" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="StorageLocation" class="form-control" />
+                <span asp-validation-for="StorageLocation" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="TotalQuantity" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="TotalQuantity" class="form-control" />
+                <span asp-validation-for="TotalQuantity" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="QuantityRemaining" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="QuantityRemaining" class="form-control" />
+                <span asp-validation-for="QuantityRemaining" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="RequestSubmitted" />
+                    <label asp-for="RequestSubmitted"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

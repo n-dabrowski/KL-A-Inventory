@@ -1,0 +1,44 @@
+﻿@model testerino.ViewModels.ContactViewModel
+@{
+    ViewData["Title"] = "Contact";
+}
+
+@section scripts {
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+
+<h2>@ViewData["Title"].</h2>
+<h3>@ViewData["Message"]</h3>
+
+<h4>SUPPLY REQUEST TEST</h4>
+<form method="post">
+    <span asp-validation-summary="ModelOnly"></span>
+    <div><label asp-for="Name"></label></div>
+    <div><input asp-for="Name" /></div>
+    <div><span asp-validation-for="Name"></span></div>
+    <div><label asp-for="Email"></label></div>
+    <div><input type="email" asp-for="Email" /></div>
+    <div><span asp-validation-for="Email"></span></div>
+    <div><label asp-for="Message"></label></div>
+    <div><textarea cols="40" rows="4" asp-for="Message"></textarea></div>
+    <div><span asp-validation-for="Message"></span></div>
+    <div>
+        <input type="submit" value="Send Message" />
+    </div>
+</form>
+
+
+
+
+<address>
+    One Microsoft Way<br />
+    Redmond, WA 98052-6399<br />
+    <abbr title="Phone">P:</abbr>
+    425.555.0100
+</address>
+
+<address>
+    <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
+    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+</address>
